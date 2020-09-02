@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df3c20f9-4a84-41da-a23f-64deb43ad95e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/BasicModule.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/ResNet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/MSNet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ResNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/ResNet.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +67,9 @@
       <workItem from="1598428337167" duration="2424000" />
       <workItem from="1598439279429" duration="60000" />
       <workItem from="1598918664884" duration="6641000" />
-      <workItem from="1598944125112" duration="382000" />
+      <workItem from="1598944125112" duration="4205000" />
+      <workItem from="1599008912471" duration="6703000" />
+      <workItem from="1599026912955" duration="5048000" />
     </task>
     <task id="LOCAL-00001" summary="配置环境">
       <created>1598429477653</created>

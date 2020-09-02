@@ -58,7 +58,7 @@ class ResNet(BasicModule):
 
     def _make_layer(self, inchannel, outchannel, block_num, stride=1):
         '''
-        构建layer,包含多个residual block
+            构建layer,包含多个residual block
         '''
         shortcut = nn.Sequential(
             nn.Conv2d(inchannel, outchannel, 1, stride, bias=False),
