@@ -34,18 +34,3 @@ class BasicModule(torch.nn.Module):
             name = time.strftime(prefix + '%m%d_%H:%M:%S.pth')
         torch.save(self.state_dict(), name)
         return name
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

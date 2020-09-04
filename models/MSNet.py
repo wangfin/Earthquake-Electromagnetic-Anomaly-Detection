@@ -17,6 +17,7 @@ class MSNet(BasicModule):
         :param num_classes: 全连接层的层数
         '''
         super(MSNet, self).__init__()
+        self.model_name = 'MSNet'
 
         # 第一个分支，层数多，表示局部视野
         self.S1_1 = nn.Sequential(
