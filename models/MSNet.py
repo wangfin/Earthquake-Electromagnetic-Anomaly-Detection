@@ -21,7 +21,7 @@ class MSNet(BasicModule):
 
         # 第一个分支，层数多，表示局部视野
         self.S1_1 = nn.Sequential(
-            nn.Conv2d(in_channels=1, out_channels=32, kernel_size=11, stride=2),
+            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=11, stride=2),
             nn.BatchNorm2d(32),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(3, 2, 1)
