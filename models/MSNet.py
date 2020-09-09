@@ -8,9 +8,11 @@
 import torch
 from torch import nn
 from.BasicModule import BasicModule
+import torchsnooper
 
 class MSNet(BasicModule):
 
+    @torchsnooper.snoop()
     def __init__(self, num_classes=2):
         '''
         构建模型架构
@@ -21,48 +23,65 @@ class MSNet(BasicModule):
 
         # 第一个分支，层数多，表示局部视野
         self.S1_1 = nn.Sequential(
-            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=11, stride=2),
+            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=5, stride=2),
             nn.BatchNorm2d(32),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(3, 2, 1)
+            # nn.MaxPool2d(3, 2, 1)
         )
 
         self.S1_2 = nn.Sequential(
             nn.Conv2d(in_channels=32, out_channels=64, kernel_size=5, stride=2),
             nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(3, 2, 1)
+            # nn.MaxPool2d(3, 2, 1)
         )
 
         self.S1_3 = nn.Sequential(
-            nn.Conv2d(in_channels=64, out_channels=128, kernel_size=5, stride=2),
+            nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, stride=2),
             nn.BatchNorm2d(128),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(3, 2, 1)
+            # nn.MaxPool2d(3, 2, 1)
         )
 
         self.S1_4 = nn.Sequential(
             nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, stride=2),
             nn.BatchNorm2d(256),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(3, 2, 1)
+            # nn.MaxPool2d(3, 2, 1)
         )
 
         self.S1_5 = nn.Sequential(
-            nn.Conv2d(in_channels=256, out_channels=256, kernel_size=3, stride=2),
+            nn.Conv2d(in_channels=512, out_channels=256, kernel_size=3, stride=2),
+            nn.BatchNorm2d(256),
+            nn.ReLU(inplace=True),
+            # nn.MaxPool2d(3, 2, 1)
+        )
+        # 第二个分支
+        # S2_1 = S1_2
+        self.S2_1 = nn.Sequential(
+            nn.Conv2d(in_channels=3, out_channels=64, kernel_size=120, stride=2),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+            # nn.MaxPool2d(3, 2, 1)
+        )
+        self.S2_2 = nn.Sequential(
+            nn.Conv2d(in_channels=128, out_channels=256, kernel_size=31, stride=2),
             nn.BatchNorm2d(256),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(3, 2, 1)
         )
-        # 第二个分支
-        self.S2_1 = self.S1_2
-        self.S2_2 = self.S1_4
         # 第三个分支
-        self.S3_1 = self.S1_2
+        self.S3_1 = nn.Sequential(
+            nn.Conv2d(in_channels=3, out_channels=64, kernel_size=120, stride=2),
+            nn.BatchNorm2d(64),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(3, 2, 1)
+        )
 
         # 分类用的全连接
         self.fc = nn.Linear(256, num_classes)
 
+    @torchsnooper.snoop()
     def forward(self, x):
         # 构建第一分支
         S1_1_out = self.S1_1(x)
@@ -71,15 +90,18 @@ class MSNet(BasicModule):
 
         S1_2_out = self.S1_2(S1_1_out)
 
-        S1_3_in = S1_2_out + S2_1_out
+        # S1_3_in = S1_2_out + S2_1_out
+        S1_3_in = torch.cat([S1_2_out, S2_1_out], 1)
         S1_3_out = self.S1_3(S1_3_in)
 
         S1_4_out = self.S1_4(S1_3_out)
 
-        S2_2_in = S2_1_out + S3_1_out
+        # S2_2_in = S2_1_out + S3_1_out
+        S2_2_in = torch.cat([S2_1_out, S3_1_out], 1)
         S2_2_out = self.S2_2(S2_2_in)
 
-        S1_5_in = S1_4_out + S2_1_out
+        # S1_5_in = S1_4_out + S2_1_out
+        S1_5_in = torch.cat([S1_4_out, S2_2_out], 1)
         S1_5_out = self.S1_5(S1_5_in)
 
         # 展平层

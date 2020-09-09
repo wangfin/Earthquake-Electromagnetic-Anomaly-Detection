@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="df3c20f9-4a84-41da-a23f-64deb43ad95e" name="Default Changelist" comment="添加配置文件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/BasicModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/BasicModule.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/MSNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/MSNet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/ResNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/ResNet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -130,6 +126,7 @@
       <workItem from="1599203585750" duration="2144000" />
       <workItem from="1599447149082" duration="724000" />
       <workItem from="1599522998985" duration="15605000" />
+      <workItem from="1599609896523" duration="14229000" />
     </task>
     <task id="LOCAL-00001" summary="配置环境">
       <created>1598429477653</created>
