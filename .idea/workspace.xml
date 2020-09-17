@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df3c20f9-4a84-41da-a23f-64deb43ad95e" name="Default Changelist" comment="添加配置文件">
+      <change afterPath="$PROJECT_DIR$/data/data_process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/MSNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/MSNet.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,7 +55,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.data_process">
+    <configuration name="data_process" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Earthquake-Electromagnetic-Anomaly-Detection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/data_process.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Earthquake-Electromagnetic-Anomaly-Detection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,6 +124,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.data_process" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.test" />
       </list>
@@ -127,6 +152,11 @@
       <workItem from="1599447149082" duration="724000" />
       <workItem from="1599522998985" duration="15605000" />
       <workItem from="1599609896523" duration="14229000" />
+      <workItem from="1599701792779" duration="5911000" />
+      <workItem from="1600219066409" duration="5054000" />
+      <workItem from="1600239993547" duration="6057000" />
+      <workItem from="1600304237366" duration="1845000" />
+      <workItem from="1600331255654" duration="1541000" />
     </task>
     <task id="LOCAL-00001" summary="配置环境">
       <created>1598429477653</created>
@@ -167,6 +197,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="添加配置文件" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Earthquake_Electromagnetic_Anomaly_Detection$data_process.coverage" NAME="data_process Coverage Results" MODIFIED="1599703936872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/Earthquake_Electromagnetic_Anomaly_Detection$main.coverage" NAME="main Coverage Results" MODIFIED="1599549097962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Earthquake_Electromagnetic_Anomaly_Detection$test.coverage" NAME="test Coverage Results" MODIFIED="1599100283233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

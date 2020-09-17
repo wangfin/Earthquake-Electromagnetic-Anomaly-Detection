@@ -111,7 +111,7 @@ def train(**kwargs):
             optimizer.step()
 
             # meters update and visualize
-            loss_meter.add(loss.data[0])
+            loss_meter.add(loss.item())
             confusion_matrix.add(score.data, label.data)
 
             if ii % opt.print_freq == opt.print_freq - 1:

@@ -12,7 +12,7 @@ import torchsnooper
 
 class MSNet(BasicModule):
 
-    @torchsnooper.snoop()
+    # @torchsnooper.snoop()
     def __init__(self, num_classes=2):
         '''
         构建模型架构
@@ -68,20 +68,28 @@ class MSNet(BasicModule):
             nn.Conv2d(in_channels=128, out_channels=256, kernel_size=31, stride=2),
             nn.BatchNorm2d(256),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(3, 2, 1)
+            # nn.MaxPool2d(3, 2, 1)
         )
         # 第三个分支
         self.S3_1 = nn.Sequential(
             nn.Conv2d(in_channels=3, out_channels=64, kernel_size=120, stride=2),
             nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(3, 2, 1)
+            # nn.MaxPool2d(3, 2, 1)
         )
 
         # 分类用的全连接
-        self.fc = nn.Linear(256, num_classes)
+        self.fc = nn.Sequential(
+            nn.Dropout(),
+            nn.Linear(576, 256),
+            nn.ReLU(inplace=True),
+            nn.Dropout(),
+            nn.Linear(256, 128),
+            nn.ReLU(inplace=True),
+            nn.Linear(128, num_classes)
+        )
 
-    @torchsnooper.snoop()
+    # @torchsnooper.snoop()
     def forward(self, x):
         # 构建第一分支
         S1_1_out = self.S1_1(x)
@@ -104,13 +112,20 @@ class MSNet(BasicModule):
         S1_5_in = torch.cat([S1_4_out, S2_2_out], 1)
         S1_5_out = self.S1_5(S1_5_in)
 
+        # 全局平均池化
+        S1_out = nn.functional.adaptive_avg_pool2d(S1_5_out, (1, 1))
+        S2_out = nn.functional.adaptive_avg_pool2d(S2_2_out, (1, 1))
+        S3_out = nn.functional.adaptive_avg_pool2d(S3_1_out, (1, 1))
+
         # 展平层
-        S1_out = torch.flatten(S1_5_out)
-        S2_out = torch.flatten(S2_2_out)
-        S3_out = torch.flatten(S3_1_out)
+        S1_out = S1_out.view(S1_out.size(0), -1)
+        S2_out = S1_out.view(S2_out.size(0), -1)
+        S3_out = S3_out.view(S3_out.size(0), -1)
+        # S2_out = torch.flatten(S2_out)
+        # S3_out = torch.flatten(S3_out)
 
         # 合并特征
-        S_out = torch.stack((S1_out, S2_out, S3_out))
+        S_out = torch.cat([S1_out, S2_out, S3_out], 1)
 
         # 全连接层
         y = self.fc(S_out)
