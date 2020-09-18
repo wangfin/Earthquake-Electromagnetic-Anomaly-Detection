@@ -27,10 +27,11 @@ class BasicModule(torch.nn.Module):
         如AlexNet_0710_23:57:29.pth
         '''
         if name is None:
-            prefix = './checkpoints/' + self.model_name + '_'
-            name = time.strftime(prefix + '%m%d_%H:%M:%S.pth')
+            prefix = 'checkpoints/' + self.model_name + '_'
+            name = time.strftime(prefix + '%m%d_%H-%M-%S.pth')
         else:
-            prefix = './checkpoints/' + '_'
-            name = time.strftime(prefix + '%m%d_%H:%M:%S.pth')
+            prefix = 'checkpoints/' + '_'
+            name = time.strftime(prefix + '%m%d_%H-%M-%S.pth')
+        # 保存网络中的参数, 速度快，占空间少
         torch.save(self.state_dict(), name)
         return name

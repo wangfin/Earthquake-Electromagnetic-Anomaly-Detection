@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df3c20f9-4a84-41da-a23f-64deb43ad95e" name="Default Changelist" comment="添加配置文件">
-      <change afterPath="$PROJECT_DIR$/data/data_process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/MSNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/MSNet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/BasicModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/BasicModule.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +36,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -55,7 +55,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.data_process">
+  <component name="RunManager" selected="Python.MSNet">
+    <configuration name="MSNet" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Earthquake-Electromagnetic-Anomaly-Detection" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/MSNet.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="data_process" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Earthquake-Electromagnetic-Anomaly-Detection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,6 +146,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MSNet" />
         <item itemvalue="Python.data_process" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.test" />
@@ -156,7 +179,10 @@
       <workItem from="1600219066409" duration="5054000" />
       <workItem from="1600239993547" duration="6057000" />
       <workItem from="1600304237366" duration="1845000" />
-      <workItem from="1600331255654" duration="1541000" />
+      <workItem from="1600331255654" duration="2287000" />
+      <workItem from="1600339141654" duration="1368000" />
+      <workItem from="1600387648304" duration="11020000" />
+      <workItem from="1600410954357" duration="4273000" />
     </task>
     <task id="LOCAL-00001" summary="配置环境">
       <created>1598429477653</created>

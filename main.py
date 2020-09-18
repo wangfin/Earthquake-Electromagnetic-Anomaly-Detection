@@ -16,6 +16,7 @@ from torchnet import meter
 from utils.visualize import Visualizer
 from tqdm import tqdm
 import torch
+import copy
 
 
 def test(**kwargs):
@@ -55,7 +56,7 @@ def test(**kwargs):
 
 def write_csv(results, file_name):
     import csv
-    with open(file_name, 'w') as f:
+    with open(file_name, 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['id', 'label'])
         writer.writerows(results)
@@ -92,13 +93,17 @@ def train(**kwargs):
     confusion_matrix = meter.ConfusionMeter(2)
     previous_loss = 1e100
 
+    # 保存最优模型
+    best_model_wts = copy.deepcopy(model.state_dict())
+    best_acc = 0.0
+
     # train
     for epoch in range(opt.max_epoch):
 
         loss_meter.reset()
         confusion_matrix.reset()
 
-        for ii, (data, label) in tqdm(enumerate(train_dataloader), total=len(train_data)):
+        for ii, (data, label) in tqdm(enumerate(train_dataloader), total=len(train_data)//opt.batch_size):
 
             # train model
             data = data.to(DEVICE)
@@ -116,8 +121,9 @@ def train(**kwargs):
 
             if ii % opt.print_freq == opt.print_freq - 1:
                 vis.plot('loss', loss_meter.value()[0])
+                print('t = %d, loss = %.4f' % (ii + 1, loss_meter.value()[0]))
 
-        model.save()
+        # model.save()
 
         # validate and visualize
         val_cm, val_accuracy = val(model, val_dataloader)
@@ -126,6 +132,11 @@ def train(**kwargs):
         vis.log("epoch:{epoch},lr:{lr},loss:{loss},train_cm:{train_cm},val_cm:{val_cm}".format(
             epoch=epoch, loss=loss_meter.value()[0], val_cm=str(val_cm.value()), train_cm=str(confusion_matrix.value()),
             lr=lr))
+
+        # save the best model
+        if val_accuracy > best_acc:
+            best_acc = val_accuracy
+            best_model_wts = copy.deepcopy(model.state_dict())
 
         # update learning rate
         if loss_meter.value()[0] > previous_loss:
@@ -136,11 +147,21 @@ def train(**kwargs):
 
         previous_loss = loss_meter.value()[0]
 
+    # 加载最佳的参数
+    model.load_state_dict(best_model_wts)
+
+    # 保存模型
+    model_save_path = model.save()
+    print('最优模型保存在：', model_save_path)
+
 
 def val(model, dataloader):
     '''
     计算模型在验证集上的准确率等信息
     '''
+    # 是否使用GPU
+    DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
     model.eval()
     confusion_matrix = meter.ConfusionMeter(2)
     for ii, data in enumerate(dataloader):
