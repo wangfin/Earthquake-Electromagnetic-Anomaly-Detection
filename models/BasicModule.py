@@ -6,6 +6,7 @@
 import torch
 import time
 
+
 class BasicModule(torch.nn.Module):
     '''
     封装了nn.Module，主要提供save和load两个方法
