@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <!-- App Favicon -->
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+
+        <title>坐标地图展示</title>
+
+        <!-- App css -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/core.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/components.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/icons.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/pages.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/menu.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/responsive.css' %}" rel="stylesheet" type="text/css" />
+
+        <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="{% static 'js/modernizr.min.js' %}"></script>
+
+        <!-- Sweet Alert css -->
+        <link href="{% static 'plugins/bootstrap-sweetalert/sweet-alert.css' %}" rel="stylesheet" type="text/css" />
+
+
+    </head>
+
+
+    <body class="fixed-left">
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- Top Bar Start -->
+            <div class="topbar">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <a href="/visualization/index" class="logo"><span>地震电磁预警</span></span><i class="zmdi zmdi-layers"></i></a>
+                </div>
+
+                <!-- Button mobile view to collapse sidebar menu -->
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="container">
+
+                        <!-- Page title -->
+                        <ul class="nav navbar-nav navbar-left">
+                            <li>
+                                <button class="button-menu-mobile open-left">
+                                    <i class="zmdi zmdi-menu"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <h4 class="page-title">热力地图展示</h4>
+                            </li>
+                        </ul>
+
+                        <!-- Right(Notification and Searchbox -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <!-- Notification -->
+                                <div class="notification-box">
+                                    <ul class="list-inline m-b-0">
+                                        <li>
+                                            <a href="javascript:void(0);" class="right-bar-toggle">
+                                                <i class="zmdi zmdi-notifications-none"></i>
+                                            </a>
+                                            <div class="noti-dot">
+                                                <span class="dot"></span>
+                                                <span class="pulse"></span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- End Notification bar -->
+                            </li>
+                            <li class="hidden-xs">
+                                <form role="search" class="app-search">
+                                    <input type="text" placeholder="在这里搜索..."
+                                           class="form-control">
+                                    <a href=""><i class="fa fa-search"></i></a>
+                                </form>
+                            </li>
+                        </ul>
+
+                    </div><!-- end container -->
+                </div><!-- end navbar -->
+            </div>
+            <!-- Top Bar End -->
+
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+                <div class="sidebar-inner slimscrollleft">
+
+                    <!-- User -->
+                    <div class="user-box">
+                        <div class="user-img">
+                            <img src="{% static 'images/users/admin.jpg' %}" alt="user-img" title="Admin" class="img-circle img-thumbnail img-responsive">
+                            <div class="user-status offline"><i class="zmdi zmdi-dot-circle"></i></div>
+                        </div>
+                        <h5><a href="#">{{ request.session.identity }}</a> </h5>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" >
+                                    <i class="zmdi zmdi-settings"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="text-custom" data-toggle="modal" data-target="#log_out">
+                                    <i class="zmdi zmdi-power"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End User -->
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <ul>
+                        	<li class="text-muted menu-title">菜单栏</li>
+
+                            <li>
+                                <a href="/visualization/index" class="waves-effect">
+                                    <i class="zmdi zmdi-view-dashboard"></i>
+                                    <span> 首页 </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/visualization/map" class="waves-effect">
+                                    <i class="zmdi zmdi-google-maps"></i>
+                                    <span> 热力地图展示 </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/visualization/realtime" class="waves-effect">
+                                    <i class="ti-stats-up"></i>
+                                    <span> 实时数据展示 </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/visualization/incremental" class="waves-effect">
+                                    <i class="ti-layers-alt"></i>
+                                    <span> 增量对比展示 </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/visualization/historical_list" class="waves-effect active">
+                                    <i class="ti-harddrives"></i>
+                                    <span> 历史数据列表 </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- Sidebar -->
+                    <div class="clearfix"></div>
+
+                </div>
+
+            </div>
+            <!-- Left Sidebar End -->
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container">
+
+                        <div class="row" >
+                            <div class="card-box">
+                                <div id="allmap" style="height: 800px"></div>
+                            </div>
+                        </div>
+                        <!-- End row -->
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                <footer class="footer text-right">
+                    2020 © HHU电磁大赛开发小组.
+                </footer>
+
+            </div>
+            <!-- End content-page -->
+
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+            <!-- Right Sidebar -->
+            <div class="side-bar right-bar">
+                <a href="javascript:void(0);" class="right-bar-toggle">
+                    <i class="zmdi zmdi-close-circle-o"></i>
+                </a>
+                <h4 class="">Notifications</h4>
+                <div class="notification-list nicescroll">
+                    <ul class="list-group list-no-border user-list">
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Michael Zenaty</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">2 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="icon bg-info">
+                                    <i class="zmdi zmdi-account"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">New Signup</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">5 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="icon bg-pink">
+                                    <i class="zmdi zmdi-comment"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">New Message received</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">1 day ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item active">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">James Anderson</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">2 days ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item active">
+                            <a href="#" class="user-list-item">
+                                <div class="icon bg-warning">
+                                    <i class="zmdi zmdi-settings"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Settings</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">1 day ago</span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- /Right-bar -->
+
+        </div>
+        <!-- END wrapper -->
+
+        <!-- 登出弹窗 -->
+        <div id="log_out" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">登出</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4>您确定登出么？</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-info waves-effect waves-light" id="logout">确认登出</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal -->
+
+        <script>
+            var resizefunc = [];
+        </script>
+
+        <!-- jQuery  -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/detect.js' %}"></script>
+        <script src="{% static 'js/fastclick.js' %}"></script>
+        <script src="{% static 'js/jquery.blockUI.js' %}"></script>
+        <script src="{% static 'js/waves.js' %}"></script>
+        <script src="{% static 'js/jquery.nicescroll.js' %}"></script>
+        <script src="{% static 'js/jquery.slimscroll.js' %}"></script>
+        <script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+
+        <!-- 引入 ECharts 文件 -->
+        <script src="{% static 'echarts/echarts.min.js' %}"></script>
+        <script src="https://api.map.baidu.com/api?v=2.0&ak=5v9wEcsWYqs2kSbPWLzOvcjIlvjXPbyn"></script>
+        <!-- 引入百度地图扩展 -->
+        <script src="{% static 'echarts/extension/bmap.min.js' %}"></script>
+
+        <!-- App js -->
+        <script src="{% static 'js/jquery.core.js' %}"></script>
+        <script src="{% static 'js/jquery.app.js' %}"></script>
+
+        <!-- Sweet Alert js -->
+        <script src="{% static 'plugins/bootstrap-sweetalert/sweet-alert.min.js' %}"></script>
+        <script src="{% static 'pages/jquery.sweet-alert.init.js' %}"></script>
+
+
+        <script>
+
+            $(document).ready(function() {
+
+                $('#logout').click(function () {
+                    $.ajax({
+                       type:"POST",
+                       url:"/tea/logout",
+                       data:{},//传递数组
+                       success:function (data) {
+                           window.location.href = '/tea';
+                       },
+                        error:function (data) {
+                            swal({
+                                    title: "Wrong!",
+                                    text: "出错啦!",
+                                    type: "error",
+                                    showCancelButton: false,
+                                    confirmButtonClass: 'btn-danger waves-effect waves-light',
+                                    confirmButtonText: '返回!'
+                                });
+                            }
+                       });
+                });
+
+                // 百度地图的定位
+                {% if coordinate %}
+
+                    // 百度地图API功能
+                    var map = new BMap.Map("allmap");
+                    // 设置中心点
+                    map.centerAndZoom(new BMap.Point({{ coordinate.lon }} , {{ coordinate.lat }}), 13);
+                    // 缩放
+                    map.enableScrollWheelZoom(true);
+                    map.clearOverlays();
+                    // mark
+                    var new_point = new BMap.Point({{ coordinate.lon }}, {{ coordinate.lat }});
+                    var marker = new BMap.Marker(new_point);  // 创建标注
+                    map.addOverlay(marker);              // 将标注添加到地图中
+                    map.panTo(new_point);
+                {% else %}
+                    swal({
+                            title: "Wrong!",
+                            text: "出错啦!",
+                            type: "error",
+                            showCancelButton: false,
+                            confirmButtonClass: 'btn-danger waves-effect waves-light',
+                            confirmButtonText: '返回!'
+                        });
+
+                {% endif %}
+
+            });
+
+
+
+        </script>
+
+    </body>
+</html>

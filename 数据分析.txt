@@ -1,0 +1,82 @@
+x = tensor<(128, 3, 224, 224), float32, cuda:0>
+S1_1_out = tensor<(128, 32, 55, 55), float32, cuda:0, grad>
+S2_1_out = tensor<(128, 64, 55, 55), float32, cuda:0, grad>
+S3_1_out = tensor<(128, 64, 55, 55), float32, cuda:0, grad>
+
+S1_2_out = tensor<(128, 64, 13, 13), float32, cuda:0, grad>
+
+
+x = tensor<(128, 3, 224, 224), float32, cuda:0>
+S1_1_out = tensor<(128, 32, 110, 110), float32, cuda:0, grad>
+S2_1_out = tensor<(128, 64, 110, 110), float32, cuda:0, grad>
+S3_1_out = tensor<(128, 64, 110, 110), float32, cuda:0, grad>
+S1_2_out = tensor<(128, 64, 53, 53), float32, cuda:0, grad>
+
+
+ource path:... F:\working_space\Earthquake-Electromagnetic-Anomaly-Detection\models\MSNet.py
+Starting var:.. self = MSNet(  (S1_1): Sequential(    (0): Conv2d(3, 32...near(in_features=256, out_features=2, bias=True))
+Starting var:.. x = tensor<(128, 3, 224, 224), float32, cuda:0>
+15:14:38.632950 call        85     def forward(self, x):
+15:14:38.642802 line        87         S1_1_out = self.S1_1(x)
+New var:....... S1_1_out = tensor<(128, 32, 110, 110), float32, cuda:0, grad>
+15:14:39.334801 line        88         S2_1_out = self.S2_1(x)
+New var:....... S2_1_out = tensor<(128, 64, 53, 53), float32, cuda:0, grad>
+15:14:39.359681 line        89         S3_1_out = self.S3_1(x)
+New var:....... S3_1_out = tensor<(128, 64, 53, 53), float32, cuda:0, grad>
+15:14:40.409352 line        91         S1_2_out = self.S1_2(S1_1_out)
+New var:....... S1_2_out = tensor<(128, 64, 53, 53), float32, cuda:0, grad>
+15:14:41.462244 line        94         S1_3_in = torch.cat([S1_2_out, S2_1_out], 1)
+New var:....... S1_3_in = tensor<(128, 128, 53, 53), float32, cuda:0, grad>
+15:14:41.508465 line        95         S1_3_out = self.S1_3(S1_3_in)
+New var:....... S1_3_out = tensor<(128, 128, 26, 26), float32, cuda:0, grad>
+15:14:41.554592 line        97         S1_4_out = self.S1_4(S1_3_out)
+New var:....... S1_4_out = tensor<(128, 256, 12, 12), float32, cuda:0, grad>
+15:14:41.593694 line       100         S2_2_in = torch.cat([S2_1_out, S3_1_out], 1)
+New var:....... S2_2_in = tensor<(128, 128, 53, 53), float32, cuda:0, grad>
+15:14:41.623142 line       101         S2_2_out = self.S2_2(S2_2_in)
+New var:....... S2_2_out = tensor<(128, 256, 12, 12), float32, cuda:0, grad>
+15:14:41.658699 line       104         S1_5_in = torch.cat([S1_4_out, S2_2_out], 1)
+New var:....... S1_5_in = tensor<(128, 512, 12, 12), float32, cuda:0, grad>
+15:14:41.980768 line       105         S1_5_out = self.S1_5(S1_5_in)
+New var:....... S1_5_out = tensor<(128, 256, 5, 5), float32, cuda:0, grad>
+15:14:42.046633 line       108         S1_out = torch.flatten(S1_5_out)
+New var:....... S1_out = tensor<(819200,), float32, cuda:0, grad>
+15:14:42.752873 line       109         S2_out = torch.flatten(S2_2_out)
+New var:....... S2_out = tensor<(4718592,), float32, cuda:0, grad>
+15:14:42.788797 line       110         S3_out = torch.flatten(S3_1_out)
+New var:....... S3_out = tensor<(23011328,), float32, cuda:0, grad>
+15:14:42.825674 line       113         S_out = torch.stack((S1_out, S2_out, S3_out))
+15:14:44.932697 exception  113         S_out = torch.stack((S1_out, S2_out, S3_out))
+
+
+ource path:... F:\working_space\Earthquake-Electromagnetic-Anomaly-Detection\models\MSNet.py
+Starting var:.. self = MSNet(  (S1_1): Sequential(    (0): Conv2d(3, 32...near(in_features=256, out_features=2, bias=True))
+Starting var:.. x = tensor<(128, 3, 224, 224), float32, cuda:0>
+09:46:01.465477 call        85     def forward(self, x):
+09:46:01.476449 line        87         S1_1_out = self.S1_1(x)
+New var:....... S1_1_out = tensor<(128, 32, 110, 110), float32, cuda:0, grad>
+09:46:02.296278 line        88         S2_1_out = self.S2_1(x)
+New var:....... S2_1_out = tensor<(128, 64, 53, 53), float32, cuda:0, grad>
+09:46:02.374070 line        89         S3_1_out = self.S3_1(x)
+New var:....... S3_1_out = tensor<(128, 64, 53, 53), float32, cuda:0, grad>
+09:46:06.944405 line        91         S1_2_out = self.S1_2(S1_1_out)
+New var:....... S1_2_out = tensor<(128, 64, 53, 53), float32, cuda:0, grad>
+09:46:11.537202 line        94         S1_3_in = torch.cat([S1_2_out, S2_1_out], 1)
+New var:....... S1_3_in = tensor<(128, 128, 53, 53), float32, cuda:0, grad>
+09:46:11.583073 line        95         S1_3_out = self.S1_3(S1_3_in)
+New var:....... S1_3_out = tensor<(128, 128, 26, 26), float32, cuda:0, grad>
+09:46:11.630946 line        97         S1_4_out = self.S1_4(S1_3_out)
+Modified var:.. S1_1_out = REPR FAILED
+New var:....... S1_4_out = tensor<(128, 256, 12, 12), float32, cuda:0, grad>
+09:46:11.699760 line       100         S2_2_in = torch.cat([S2_1_out, S3_1_out], 1)
+Modified var:.. S1_3_in = REPR FAILED
+New var:....... S2_2_in = REPR FAILED
+09:46:11.742645 line       101         S2_2_out = self.S2_2(S2_2_in)
+Modified var:.. x = REPR FAILED
+Modified var:.. S2_1_out = REPR FAILED
+Modified var:.. S3_1_out = REPR FAILED
+Modified var:.. S1_2_out = REPR FAILED
+Modified var:.. S1_3_out = REPR FAILED
+09:46:11.770572 exception  101         S2_2_out = self.S2_2(S2_2_in)
+
+
