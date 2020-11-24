@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df3c20f9-4a84-41da-a23f-64deb43ad95e" name="Default Changelist" comment="添加配置文件" />
+    <list default="true" id="df3c20f9-4a84-41da-a23f-64deb43ad95e" name="Default Changelist" comment="添加配置文件">
+      <change afterPath="$PROJECT_DIR$/utils/draw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/data_process.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JupyterTrust" id="95c96756-6d92-4a9b-b416-b12538da7848" />
+  <component name="JupyterTrust" id="97a4780f-fc40-4f6e-940e-60ea93ff4412" />
   <component name="ProjectId" id="1gcymg5M3tPJJbtEeK3CDWD8HBw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -28,7 +32,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Earthquake" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -43,7 +47,7 @@
       <recent name="F:\working_space\Earthquake-Electromagnetic-Anomaly-Detection" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.MSNet">
+  <component name="RunManager" selected="Python.data_process">
     <configuration name="MSNet" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Earthquake-Electromagnetic-Anomaly-Detection" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -134,8 +138,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.MSNet" />
         <item itemvalue="Python.data_process" />
+        <item itemvalue="Python.MSNet" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.test" />
       </list>
@@ -174,6 +178,8 @@
       <workItem from="1600410954357" duration="4273000" />
       <workItem from="1600673871501" duration="4890000" />
       <workItem from="1600732575265" duration="507000" />
+      <workItem from="1604908389853" duration="4981000" />
+      <workItem from="1604970044680" duration="61000" />
     </task>
     <task id="LOCAL-00001" summary="配置环境">
       <created>1598429477653</created>
@@ -213,10 +219,42 @@
     <option name="LAST_COMMIT_MESSAGE" value="添加配置文件" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="686" y="240" key="FileChooserDialogImpl" timestamp="1600677161759">
+    <state x="686" y="240" key="FileChooserDialogImpl" timestamp="1604970104503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="686" y="240" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1600677161759" />
+    <state x="686" y="240" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604970104503" />
+    <state width="1867" height="262" key="GridCell.Tab.0.bottom" timestamp="1604917903180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="262" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604917903180" />
+    <state width="1867" height="262" key="GridCell.Tab.0.center" timestamp="1604917903180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="262" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604917903180" />
+    <state width="1867" height="262" key="GridCell.Tab.0.left" timestamp="1604917903180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="262" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604917903180" />
+    <state width="1867" height="262" key="GridCell.Tab.0.right" timestamp="1604917903180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="262" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604917903180" />
+    <state width="1867" height="262" key="GridCell.Tab.1.bottom" timestamp="1604917903181">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="262" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604917903181" />
+    <state width="1867" height="262" key="GridCell.Tab.1.center" timestamp="1604917903180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="262" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604917903180" />
+    <state width="1867" height="262" key="GridCell.Tab.1.left" timestamp="1604917903180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="262" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604917903180" />
+    <state width="1867" height="262" key="GridCell.Tab.1.right" timestamp="1604917903180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1867" height="262" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604917903180" />
     <state x="344" y="78" key="SettingsEditor" timestamp="1600677174460">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -224,7 +262,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Earthquake_Electromagnetic_Anomaly_Detection$test.coverage" NAME="test Coverage Results" MODIFIED="1599100283233" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Earthquake_Electromagnetic_Anomaly_Detection$data_process.coverage" NAME="data_process Coverage Results" MODIFIED="1599703936872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/Earthquake_Electromagnetic_Anomaly_Detection$data_process.coverage" NAME="data_process Coverage Results" MODIFIED="1604912646981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/Earthquake_Electromagnetic_Anomaly_Detection$main.coverage" NAME="main Coverage Results" MODIFIED="1599549097962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

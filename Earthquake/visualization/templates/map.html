@@ -370,11 +370,11 @@
 
                 $.ajax({
                        type:"POST",
-                       url:"https://notes-pic.oss-cn-shanghai.aliyuncs.com/Earthquake-heatmap.json",
+                       url:"{% static 'Earthquake-heatmap.json' %}",
                        data:{},//传递数组
                        contentType: "application/json",
                        crossDomain: true,
-                       dataType:'json text',
+                       dataType:'json',
                        success:function (data) {
                            var points = [].concat.apply([], data.map(function (track) {
                                return track.map(function (seg) {
@@ -386,8 +386,8 @@
                            myChart.setOption(option = {
                                animation: false,
                                bmap: {
-                                   center: [120.13066322374, 30.240018034923],
-                                   zoom: 14,
+                                   center: [104.54,29.48],
+                                   zoom: 7,
                                    roam: true
                                },
                                visualMap: {
@@ -402,13 +402,27 @@
                                    }
                                },
                                series: [{
+                                   name: 'mapdata',
                                    type: 'heatmap',
                                    coordinateSystem: 'bmap',
                                    data: points,
                                    pointSize: 5,
-                                   blurSize: 6
-                               }]
+                                   blurSize: 6,
+                                   label: {
+                                       formatter: '{b}',
+                                       position: 'right',
+                                       show: true
+                                   },
+                               }],
+                               tooltip: {
+                                   trigger: 'item',
+                               },
+
                            });
+                           myChart.on('mouseover', function () {
+                               console.log('xxx');
+                                // series name 为 'uuu' 的系列中的图形元素被 'mouseover' 时，此方法被回调。
+                            });
                            // 添加百度地图插件
                            var bmap = myChart.getModel().getComponent('bmap').getBMap();
                            bmap.addControl(new BMap.MapTypeControl());

@@ -17,10 +17,14 @@ size = os.path.getsize(filename) # 获得文件大小
 #     print(data)
 # binfile.close()
 
-for i in range(size):
-    data = binfile.read(1)
-    num = struct.unpack('B', data)
-    print(num)
+# for i in range(size):
+#     data = binfile.read(1)
+#     num = struct.unpack('c', data)
+#     print(data)
+#     break
+# binfile.close()
+
+num = struct.unpack('>HI5s', b'\xcd\xad\xcd\xcd')
 
 
 
